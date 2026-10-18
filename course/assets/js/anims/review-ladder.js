@@ -44,7 +44,7 @@
       function makeBadge(grade) {
         var b = S("g", {}, svg);
         S("rect", { x: -34, y: -15, width: 68, height: 26, rx: 13, class: grade === "Again" ? "f-orange" : "f-ink" }, b);
-        S("text", { x: 0, y: 3, class: "t t-sm t-mid", style: "fill:var(--a-paper)", "font-weight": 600, text: grade }, b);
+        S("text", { x: 0, y: 3, class: "t t-sm t-mid t-nohalo", style: "fill:var(--a-paper)", "font-weight": 600, text: grade }, b);
         b.style.opacity = 0;
         return b;
       }

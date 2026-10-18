@@ -28,7 +28,8 @@
     path.style.strokeDasharray = len + " " + len;
     path.style.strokeDashoffset = len;
     path.style.opacity = 0; // hide round line-caps until the stroke starts drawing
-    tl.set(path.style, { opacity: 1 }, pos);
+    // never exactly on a step label, or the cap shows one step early
+    tl.set(path.style, { opacity: 1 }, pos == null ? "+=0.01" : pos);
     return tl.to(path.style, Object.assign({ strokeDashoffset: 0, duration: 1, ease: "power1.inOut" }, vars || {}), "<");
   };
   /* Fade/scale elements in on a timeline (they start hidden). */

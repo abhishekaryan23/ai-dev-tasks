@@ -87,8 +87,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 /* ============ Buttons ============ */
 .btn {
   -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: .5em;
-  min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line);
-  background: var(--surface); color: var(--ink); font: 550 .98rem/1 var(--font-body); cursor: pointer; text-decoration: none;
+  min-height: 44px; padding: 8px 18px; border-radius: 999px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); font: 550 .98rem/1.25 var(--font-body); cursor: pointer; text-decoration: none; text-align: center;
   transition: background .15s, border-color .15s, transform .1s;
 }
 .btn:hover { border-color: var(--ink-2); }
@@ -237,6 +237,10 @@ figure.anim { margin: 28px 0; background: var(--a-paper); border: 1px solid var(
 .t-blue { fill: var(--a-blue); }
 .t-orange { fill: var(--a-orange); }
 .t-mid { text-anchor: middle; }
+/* Halo: a background-coloured outline keeps labels readable where a line passes behind them.
+   Text sitting on a coloured fill (heatmap cells, badges) opts out with .t-nohalo. */
+.anim-stage svg text, .playground svg text { paint-order: stroke fill; stroke: var(--a-paper); stroke-width: 4px; stroke-linejoin: round; }
+.anim-stage svg text.t-nohalo, .playground svg text.t-nohalo { stroke: none; }
 .t-end { text-anchor: end; }
 .s-axis { stroke: var(--ink-2); stroke-width: 1.5; fill: none; }
 .s-grid { stroke: var(--line); stroke-width: 1; fill: none; }
